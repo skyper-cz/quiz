@@ -1,9 +1,26 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.Console;
+import java.util.Random;
 
 public class Main {
 
     public static JFrame fr = new JFrame("Quiz");
     public static Otazka[] otazky = new Otazka[10];
+
+    public static JLabel otazka = new JLabel();
+    public static JLabel bodovac = new JLabel("0");
+    
+
+    public static JButton prva = new JButton();
+    public static JButton druha = new JButton();
+    public static JButton treti = new JButton();
+    public static JButton ctvrta = new JButton();
+
+    public static int kolikata = 0;
+    public static int body = 0;
+
     public static String[] otazicky = new String[]{"Kdo koupil niHao?", "Kdo nás opustil v roce 2021?",
             "Která značka chytrých mobilních telefonů jako první představila sateletní komunikaci?",
             "Jak se jmenuje vozídko podle něhož Láďa a Zdeněk staví své?",
@@ -27,6 +44,257 @@ public class Main {
             vlozit.setSpravnaOdpoved(spravnaOdpoved[i]);
             otazky[i] = vlozit;
         }
-        
+
+        randomizer();
+
+        fr.setBounds(200,100,1010,650);
+        fr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        fr.setLayout(null);
+        fr.getContentPane().setBackground(Color.gray);
+        fr.setVisible(true);
+        fr.setResizable(false);
+
+        prva.setBounds(10, 460, 490, 75);
+        prva.setVisible(true);
+        prva.addActionListener(Main::Prvy);
+        fr.add(prva);
+        druha.setBounds(510, 460, 490, 75);
+        druha.setVisible(true);
+        druha.addActionListener(Main::Druhy);
+        fr.add(druha);
+        treti.setBounds(10, 545, 490, 75);
+        treti.setVisible(true);
+        treti.addActionListener(Main::Tretii);
+        fr.add(treti);
+        ctvrta.setBounds(510, 545, 490, 75);
+        ctvrta.setVisible(true);
+        ctvrta.addActionListener(Main::Ctvrty);
+        fr.add(ctvrta);
+
+        fr.update(fr.getGraphics());
     }
+
+    public static void randomizer(){
+        Random random = new Random();
+        boolean dokola = true;
+        int[] zvolene = new int[]{5,5,5,5};
+        int kolik = 0;
+        while (dokola){
+            if (kolik < 4){
+                if (kolik == 0){
+                    int zvolen = random.nextInt(4);
+                    boolean nachaziSe = false;
+                    for (int j : zvolene) {
+                        if (j == zvolen) {
+                            nachaziSe = true;
+                            break;
+                        }
+                    }
+
+                    if (!nachaziSe){
+                        zvolene[0] = zvolen;
+                        kolik++;
+                    }
+                }
+                else if (kolik == 1) {
+                    int zvolen = random.nextInt(4);
+                    boolean nachaziSe = false;
+                    for (int j : zvolene) {
+                        if (j == zvolen) {
+                            nachaziSe = true;
+                            break;
+                        }
+                    }
+
+                    if (!nachaziSe){
+                        zvolene[1] = zvolen;
+                        kolik++;
+                    }
+                }
+                else if (kolik == 2) {
+                    int zvolen = random.nextInt(4);
+                    boolean nachaziSe = false;
+                    for (int j : zvolene) {
+                        if (j == zvolen) {
+                            nachaziSe = true;
+                            break;
+                        }
+                    }
+
+                    if (!nachaziSe){
+                        zvolene[2] = zvolen;
+                        kolik++;
+                    }
+                }
+                else if (kolik == 3) {
+                    int zvolen = random.nextInt(4);
+                    boolean nachaziSe = false;
+                    for (int j : zvolene) {
+                        if (j == zvolen) {
+                            nachaziSe = true;
+                            break;
+                        }
+                    }
+
+                    if (!nachaziSe){
+                        zvolene[3] = zvolen;
+                        kolik++;
+                    }
+                }
+            }
+            else {
+               dokola = false;
+            }
+        }
+        for (int i = 0; i < 4; i++){
+            if (i == 0){
+                if (zvolene[i] == 0){
+                    prva = new JButton(otazky[kolikata].moznost1);
+                }
+                else if(zvolene[i] == 1){
+                    prva = new JButton(otazky[kolikata].moznost2);
+                }
+                else if(zvolene[i] == 2){
+                    prva = new JButton(otazky[kolikata].moznost3);
+                }
+                else if(zvolene[i] == 3){
+                    prva = new JButton(otazky[kolikata].moznost4);
+                }
+            }
+
+            else if (i == 1){
+                if (zvolene[i] == 0){
+                    druha = new JButton(otazky[kolikata].moznost1);
+                }
+                else if(zvolene[i] == 1){
+                    druha = new JButton(otazky[kolikata].moznost2);
+                }
+                else if(zvolene[i] == 2){
+                    druha = new JButton(otazky[kolikata].moznost3);
+                }
+                else if(zvolene[i] == 3){
+                    druha = new JButton(otazky[kolikata].moznost4);
+                }
+            }
+
+            else if (i == 2){
+                if (zvolene[i] == 0){
+                    treti = new JButton(otazky[kolikata].moznost1);
+                }
+                else if(zvolene[i] == 1){
+                    treti = new JButton(otazky[kolikata].moznost2);
+                }
+                else if(zvolene[i] == 2){
+                    treti = new JButton(otazky[kolikata].moznost3);
+                }
+                else if(zvolene[i] == 3){
+                    treti = new JButton(otazky[kolikata].moznost4);
+                }
+            }
+
+            else if (i == 3){
+                if (zvolene[i] == 0){
+                    ctvrta = new JButton(otazky[kolikata].moznost1);
+                }
+                else if(zvolene[i] == 1){
+                    ctvrta = new JButton(otazky[kolikata].moznost2);
+                }
+                else if(zvolene[i] == 2){
+                    ctvrta = new JButton(otazky[kolikata].moznost3);
+                }
+                else if(zvolene[i] == 3){
+                    ctvrta = new JButton(otazky[kolikata].moznost4);
+                }
+            }
+
+        }
+        otazka = new JLabel(otazky[kolikata].question);
+    }
+
+    public static void Prvy(ActionEvent e){
+        if (kolikata == 9) {
+            if (prva.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+        }
+        else {
+            if (prva.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+            bodovac = new JLabel("Body: " + body);
+            fr.update(fr.getGraphics());
+            kolikata++;
+            randomizer();
+        }
+        System.out.println(body);
+    }
+    public static void Druhy(ActionEvent e){
+        if (kolikata == 9) {
+            if (druha.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+        }
+        else {
+            if (druha.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+            bodovac = new JLabel("Body: " + body);
+            fr.update(fr.getGraphics());
+            kolikata++;
+            randomizer();
+        }
+        System.out.println(body);
+    }
+    public static void Tretii(ActionEvent e){
+        if (kolikata == 9) {
+            if (treti.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+        }
+        else {
+            if (treti.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+            bodovac = new JLabel("Body: " + body);
+            fr.update(fr.getGraphics());
+            kolikata++;
+            randomizer();
+        }
+        System.out.println(body);
+    }
+    public static void Ctvrty(ActionEvent e){
+        if (kolikata == 9) {
+            if (ctvrta.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+        }
+        else {
+            if (ctvrta.getText().equals(otazky[kolikata].spravnaOdpoved)) {
+                body++;
+            } else {
+                body--;
+            }
+            bodovac = new JLabel("Body: " + body);
+            fr.update(fr.getGraphics());
+            kolikata++;
+            randomizer();
+        }
+        System.out.println(body);
+    }
+
+
 }
