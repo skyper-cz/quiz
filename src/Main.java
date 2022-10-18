@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.Console;
 import java.util.Random;
 
 public class Main {
@@ -10,8 +9,10 @@ public class Main {
     public static Otazka[] otazky = new Otazka[10];
 
     public static JLabel otazka = new JLabel();
-    public static JLabel bodovac = new JLabel("0");
-    
+    public static JLabel bodovac = new JLabel("Body: 0");
+
+    public static JLabel gratulace = new JLabel("Gratuluji");
+    public static JLabel vysledek = new JLabel("Získal jste: ");
 
     public static JButton prva = new JButton();
     public static JButton druha = new JButton();
@@ -70,6 +71,26 @@ public class Main {
         ctvrta.setVisible(true);
         ctvrta.addActionListener(Main::Ctvrty);
         fr.add(ctvrta);
+
+        otazka.setBounds(50, -50, 970, 200);
+        otazka.setFont(new Font("Verdana", Font.PLAIN, 20));
+        otazka.setVisible(true);
+        fr.add(otazka);
+
+        bodovac.setBounds(840, 280, 400, 200);
+        bodovac.setFont(new Font("Verdana", Font.PLAIN, 30));
+        bodovac.setVisible(true);
+        fr.add(bodovac);
+
+        gratulace.setBounds(50, 0, 900, 200);
+        gratulace.setFont(new Font("Verdana", Font.PLAIN, 30));
+        gratulace.setVisible(false);
+        fr.add(gratulace);
+
+        vysledek.setBounds(50, 0, 900, 200);
+        vysledek.setFont(new Font("Verdana", Font.PLAIN, 30));
+        vysledek.setVisible(false);
+        fr.add(vysledek);
 
         fr.update(fr.getGraphics());
     }
@@ -160,6 +181,8 @@ public class Main {
                 else if(zvolene[i] == 3){
                     prva = new JButton(otazky[kolikata].moznost4);
                 }
+                prva.setVisible(true);
+                fr.add(prva);
             }
 
             else if (i == 1){
@@ -175,6 +198,8 @@ public class Main {
                 else if(zvolene[i] == 3){
                     druha = new JButton(otazky[kolikata].moznost4);
                 }
+                druha.setVisible(true);
+                fr.add(druha);
             }
 
             else if (i == 2){
@@ -190,6 +215,8 @@ public class Main {
                 else if(zvolene[i] == 3){
                     treti = new JButton(otazky[kolikata].moznost4);
                 }
+                treti.setVisible(true);
+                fr.add(treti);
             }
 
             else if (i == 3){
@@ -205,10 +232,14 @@ public class Main {
                 else if(zvolene[i] == 3){
                     ctvrta = new JButton(otazky[kolikata].moznost4);
                 }
+                ctvrta.setVisible(true);
+                fr.add(ctvrta);
             }
 
         }
         otazka = new JLabel(otazky[kolikata].question);
+        fr.add(otazka);
+        fr.update(fr.getGraphics());
     }
 
     public static void Prvy(ActionEvent e){
@@ -218,6 +249,26 @@ public class Main {
             } else {
                 body--;
             }
+            prva.setEnabled(false);
+            druha.setEnabled(false);
+            treti.setEnabled(false);
+            ctvrta.setEnabled(false);
+
+            bodovac.setVisible(false);
+            prva.setVisible(false);
+            druha.setVisible(false);
+            treti.setVisible(false);
+            ctvrta.setVisible(false);
+            otazka.setVisible(false);
+
+            gratulace.setVisible(true);
+            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setVisible(true);
+
+            fr.add(gratulace);
+            fr.add(vysledek);
+
+            fr.update(fr.getGraphics());
         }
         else {
             if (prva.getText().equals(otazky[kolikata].spravnaOdpoved)) {
@@ -226,6 +277,8 @@ public class Main {
                 body--;
             }
             bodovac = new JLabel("Body: " + body);
+            bodovac.setVisible(true);
+            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -239,6 +292,26 @@ public class Main {
             } else {
                 body--;
             }
+            prva.setEnabled(false);
+            druha.setEnabled(false);
+            treti.setEnabled(false);
+            ctvrta.setEnabled(false);
+
+            bodovac.setVisible(false);
+            prva.setVisible(false);
+            druha.setVisible(false);
+            treti.setVisible(false);
+            ctvrta.setVisible(false);
+            otazka.setVisible(false);
+
+            gratulace.setVisible(true);
+            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setVisible(true);
+
+            fr.add(gratulace);
+            fr.add(vysledek);
+
+            fr.update(fr.getGraphics());
         }
         else {
             if (druha.getText().equals(otazky[kolikata].spravnaOdpoved)) {
@@ -247,6 +320,8 @@ public class Main {
                 body--;
             }
             bodovac = new JLabel("Body: " + body);
+            bodovac.setVisible(true);
+            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -260,6 +335,26 @@ public class Main {
             } else {
                 body--;
             }
+            prva.setEnabled(false);
+            druha.setEnabled(false);
+            treti.setEnabled(false);
+            ctvrta.setEnabled(false);
+
+            bodovac.setVisible(false);
+            prva.setVisible(false);
+            druha.setVisible(false);
+            treti.setVisible(false);
+            ctvrta.setVisible(false);
+            otazka.setVisible(false);
+
+            gratulace.setVisible(true);
+            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setVisible(true);
+
+            fr.add(gratulace);
+            fr.add(vysledek);
+
+            fr.update(fr.getGraphics());
         }
         else {
             if (treti.getText().equals(otazky[kolikata].spravnaOdpoved)) {
@@ -268,6 +363,8 @@ public class Main {
                 body--;
             }
             bodovac = new JLabel("Body: " + body);
+            bodovac.setVisible(true);
+            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -281,6 +378,26 @@ public class Main {
             } else {
                 body--;
             }
+            prva.setEnabled(false);
+            druha.setEnabled(false);
+            treti.setEnabled(false);
+            ctvrta.setEnabled(false);
+
+            bodovac.setVisible(false);
+            prva.setVisible(false);
+            druha.setVisible(false);
+            treti.setVisible(false);
+            ctvrta.setVisible(false);
+            otazka.setVisible(false);
+
+            gratulace.setVisible(true);
+            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setVisible(true);
+
+            fr.add(gratulace);
+            fr.add(vysledek);
+
+            fr.update(fr.getGraphics());
         }
         else {
             if (ctvrta.getText().equals(otazky[kolikata].spravnaOdpoved)) {
@@ -289,12 +406,12 @@ public class Main {
                 body--;
             }
             bodovac = new JLabel("Body: " + body);
+            bodovac.setVisible(true);
+            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
         }
         System.out.println(body);
     }
-
-
 }
