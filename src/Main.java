@@ -87,7 +87,7 @@ public class Main {
         gratulace.setVisible(false);
         fr.add(gratulace);
 
-        vysledek.setBounds(50, 0, 900, 200);
+        vysledek.setBounds(50, 50, 900, 200);
         vysledek.setFont(new Font("Verdana", Font.PLAIN, 30));
         vysledek.setVisible(false);
         fr.add(vysledek);
@@ -170,75 +170,70 @@ public class Main {
         for (int i = 0; i < 4; i++){
             if (i == 0){
                 if (zvolene[i] == 0){
-                    prva = new JButton(otazky[kolikata].moznost1);
+                    prva.setText(otazky[kolikata].moznost1);
                 }
                 else if(zvolene[i] == 1){
-                    prva = new JButton(otazky[kolikata].moznost2);
+                    prva.setText(otazky[kolikata].moznost2);
                 }
                 else if(zvolene[i] == 2){
-                    prva = new JButton(otazky[kolikata].moznost3);
+                    prva.setText(otazky[kolikata].moznost3);
                 }
                 else if(zvolene[i] == 3){
-                    prva = new JButton(otazky[kolikata].moznost4);
+                    prva.setText(otazky[kolikata].moznost4);
                 }
                 prva.setVisible(true);
-                fr.add(prva);
             }
 
             else if (i == 1){
                 if (zvolene[i] == 0){
-                    druha = new JButton(otazky[kolikata].moznost1);
+                    druha.setText(otazky[kolikata].moznost1);
                 }
                 else if(zvolene[i] == 1){
-                    druha = new JButton(otazky[kolikata].moznost2);
+                    druha.setText(otazky[kolikata].moznost2);
                 }
                 else if(zvolene[i] == 2){
-                    druha = new JButton(otazky[kolikata].moznost3);
+                    druha.setText(otazky[kolikata].moznost3);
                 }
                 else if(zvolene[i] == 3){
-                    druha = new JButton(otazky[kolikata].moznost4);
+                    druha.setText(otazky[kolikata].moznost4);
                 }
                 druha.setVisible(true);
-                fr.add(druha);
             }
 
             else if (i == 2){
                 if (zvolene[i] == 0){
-                    treti = new JButton(otazky[kolikata].moznost1);
+                    treti.setText(otazky[kolikata].moznost1);
                 }
                 else if(zvolene[i] == 1){
-                    treti = new JButton(otazky[kolikata].moznost2);
+                    treti.setText(otazky[kolikata].moznost2);
                 }
                 else if(zvolene[i] == 2){
-                    treti = new JButton(otazky[kolikata].moznost3);
+                    treti.setText(otazky[kolikata].moznost3);
                 }
                 else if(zvolene[i] == 3){
-                    treti = new JButton(otazky[kolikata].moznost4);
+                    treti.setText(otazky[kolikata].moznost4);
                 }
                 treti.setVisible(true);
-                fr.add(treti);
             }
 
             else if (i == 3){
                 if (zvolene[i] == 0){
-                    ctvrta = new JButton(otazky[kolikata].moznost1);
+                    ctvrta.setText(otazky[kolikata].moznost1);
                 }
                 else if(zvolene[i] == 1){
-                    ctvrta = new JButton(otazky[kolikata].moznost2);
+                    ctvrta.setText(otazky[kolikata].moznost2);
                 }
                 else if(zvolene[i] == 2){
-                    ctvrta = new JButton(otazky[kolikata].moznost3);
+                    ctvrta.setText(otazky[kolikata].moznost3);
                 }
                 else if(zvolene[i] == 3){
-                    ctvrta = new JButton(otazky[kolikata].moznost4);
+                    ctvrta.setText(otazky[kolikata].moznost4);
                 }
                 ctvrta.setVisible(true);
-                fr.add(ctvrta);
             }
 
         }
-        otazka = new JLabel(otazky[kolikata].question);
-        fr.add(otazka);
+        otazka.setText(otazky[kolikata].question);
         fr.update(fr.getGraphics());
     }
 
@@ -262,7 +257,7 @@ public class Main {
             otazka.setVisible(false);
 
             gratulace.setVisible(true);
-            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setText("Získal jste: " + body);
             vysledek.setVisible(true);
 
             fr.add(gratulace);
@@ -276,9 +271,8 @@ public class Main {
             } else {
                 body--;
             }
-            bodovac = new JLabel("Body: " + body);
+            bodovac.setText("Body: " + body);
             bodovac.setVisible(true);
-            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -305,7 +299,7 @@ public class Main {
             otazka.setVisible(false);
 
             gratulace.setVisible(true);
-            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setText("Získal jste: " + body);
             vysledek.setVisible(true);
 
             fr.add(gratulace);
@@ -319,9 +313,8 @@ public class Main {
             } else {
                 body--;
             }
-            bodovac = new JLabel("Body: " + body);
+            bodovac.setText("Body: " + body);
             bodovac.setVisible(true);
-            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -348,7 +341,7 @@ public class Main {
             otazka.setVisible(false);
 
             gratulace.setVisible(true);
-            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setText("Získal jste: " + body);
             vysledek.setVisible(true);
 
             fr.add(gratulace);
@@ -362,9 +355,8 @@ public class Main {
             } else {
                 body--;
             }
-            bodovac = new JLabel("Body: " + body);
+            bodovac.setText("Body: " + body);
             bodovac.setVisible(true);
-            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
@@ -391,7 +383,7 @@ public class Main {
             otazka.setVisible(false);
 
             gratulace.setVisible(true);
-            vysledek = new JLabel("Získal jste: " + body);
+            vysledek.setText("Získal jste: " + body);
             vysledek.setVisible(true);
 
             fr.add(gratulace);
@@ -405,9 +397,8 @@ public class Main {
             } else {
                 body--;
             }
-            bodovac = new JLabel("Body: " + body);
+            bodovac.setText("Body: " + body);
             bodovac.setVisible(true);
-            fr.add(bodovac);
             fr.update(fr.getGraphics());
             kolikata++;
             randomizer();
